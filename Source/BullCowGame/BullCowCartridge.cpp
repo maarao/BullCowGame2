@@ -65,6 +65,13 @@ void UBullCowCartridge::ProcessGuess(FString Guess)
         return;
     }
 
+    // Check for isogram
+    if (!IsIsogram(Guess))
+    {
+        PrintLine(TEXT("No repeating letters, guess again"));
+        return;
+    }
+    
     --Lives;
     
     if (Lives <= 0)
@@ -75,11 +82,10 @@ void UBullCowCartridge::ProcessGuess(FString Guess)
         EndGame();
         return;
     }
+}
 
-    // Check for isogram
-    if (!bIsIsogram)
-    {
-        PrintLine(TEXT("There are no repeating letters,\nguess again"));
-        PrintLine(TEXT("You have %i lives left"), Lives);
-    }
+bool UBullCowCartridge::IsIsogram(FString Word)
+{
+    // Check one letter against the other w/ 2 loops.
+    return true;
 }
